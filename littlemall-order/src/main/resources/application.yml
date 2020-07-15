@@ -1,0 +1,46 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: littlemall-order
+  datasource:
+    username: root
+    password: onion0010
+    url: jdbc:mysql://39.100.30.96:3306/littlemall_oms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  rabbitmq:
+    host: 192.168.56.10
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+    publisher-confirms: true
+    publisher-returns: true
+  thymeleaf:
+    cache: false
+  session:
+    store-type: redis
+  redis:
+    host: 192.168.56.10
+
+mybatis-plus:
+  mapper-location: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+# 自己加的
+ribbon:
+  ConnectTimeout: 5000 #请求连接的超时时间，默认时间为1秒
+  ReadTimeout: 5000 #请求处理的超时时间
+
+littlemall:
+  thread:
+    core-size: 20
+    max-size: 200
+    keep-alive-time: 10

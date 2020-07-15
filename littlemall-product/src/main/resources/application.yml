@@ -1,0 +1,45 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: littlemall-product
+  datasource:
+    username: root
+    password: onion0010
+    url: jdbc:mysql://39.100.30.96:3306/littlemall_pms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  thymeleaf:
+    cache: false
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3600000
+      cache-null-values: true
+  redis:
+    host: 192.168.56.10
+  session:
+    store-type: redis
+
+
+mybatis-plus:
+  mapper-location: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+logging:
+  level:
+    xyz.zionjo.littlemall: debug
+littlemall:
+  thread:
+    core-size: 20
+    max-size: 200
+    keep-alive-time: 10

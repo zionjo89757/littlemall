@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    alicloud:
+      access-key: LTAI4G8AaLdNZHzXA3nqxdNe
+      secret-key: dtPyuejjQZq1j3nHtYfvDVKsmZIO1J
+      oss:
+        endpoint: oss-cn-shenzhen.aliyuncs.com
+        bucket: littlemall-zionjo
+      sms:
+        host: https://fesms.market.alicloudapi.com
+        path: /sms/
+        skin: 1
+        sign: 1
+        appcode: 9ff9ac3bcac8452d81850134e0db5111
+
+server:
+  port: 30000
+
+

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: littlemall-seckill
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 32ca016d-7465-4eee-b592-2e848e616c6d

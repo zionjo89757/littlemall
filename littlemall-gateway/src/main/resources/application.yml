@@ -1,0 +1,86 @@
+server:
+  port: 88
+
+spring:
+  application:
+    name: littlemall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: product_route
+          uri: lb://littlemall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        - id: coupon_route
+          uri: lb://littlemall-coupon
+          predicates:
+            - Path=/api/coupon/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        - id: member_route
+          uri: lb://littlemall-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        - id: ware_route
+          uri: lb://littlemall-ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        - id: thirdparty_route
+          uri: lb://littlemall-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>/?.*), /$\{segment}
+
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /renren-fast/$\{segment}
+
+        - id: littlemall_host_route
+          uri: lb://littlemall-product
+          predicates:
+            - Host=littlemall.com,item.littlemall.com
+
+        - id: search_littlemall_host_route
+          uri: lb://littlemall-search
+          predicates:
+            - Host=search.littlemall.com
+
+        - id: auth_littlemall_host_route
+          uri: lb://littlemall-auth-server
+          predicates:
+            - Host=auth.littlemall.com
+
+        - id: cart_littlemall_host_route
+          uri: lb://littlemall-cart
+          predicates:
+            - Host=cart.littlemall.com
+
+        - id: order_littlemall_host_route
+          uri: lb://littlemall-order
+          predicates:
+            - Host=order.littlemall.com
+
+        - id: seckill_littlemall_host_route
+          uri: lb://littlemall-seckill
+          predicates:
+            - Host=seckill.littlemall.com
+
+
+

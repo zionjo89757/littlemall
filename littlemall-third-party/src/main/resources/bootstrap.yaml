@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: littlemall-third-party
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: e181cd6f-96a0-4a62-a8af-9d36bcaef7dc
+        ext-config:
+          - data-id: oss.yml
+            group: DEFAULT_GROUP
+            refresh: true

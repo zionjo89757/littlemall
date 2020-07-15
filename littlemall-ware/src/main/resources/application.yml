@@ -1,0 +1,34 @@
+server:
+  port: 11000
+
+spring:
+  application:
+    name: littlemall-ware
+  datasource:
+    username: root
+    password: onion0010
+    url: jdbc:mysql://39.100.30.96:3306/littlemall_wms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  rabbitmq:
+    host: 192.168.56.10
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+
+
+mybatis-plus:
+  mapper-location: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+logging:
+  level:
+    xyz.zionjo.littlemall: debug

@@ -1,0 +1,22 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: littlemall-coupon
+  datasource:
+    username: root
+    password: onion0010
+    url: jdbc:mysql://39.100.30.96:3306/littlemall_sms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+
+mybatis-plus:
+  mapper-location: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto

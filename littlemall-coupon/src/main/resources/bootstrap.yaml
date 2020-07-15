@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: littlemall-coupon
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: a353028a-e2b8-4258-a375-b27220cd5029

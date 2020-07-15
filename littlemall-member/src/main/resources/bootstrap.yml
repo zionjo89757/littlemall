@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: littlemall-member
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 1bec67a2-fd04-478e-b99d-f63d80d207f1

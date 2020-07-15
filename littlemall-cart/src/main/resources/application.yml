@@ -1,0 +1,27 @@
+server:
+  port: 15000
+
+spring:
+  application:
+    name: littlemall-cart
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  thymeleaf:
+    cache: false
+  redis:
+    host: 192.168.56.10
+  session:
+    store-type: redis
+littlemall:
+  thread:
+    core-size: 20
+    max-size: 200
+    keep-alive-time: 10
+# 自己加的
+ribbon:
+  ConnectTimeout: 5000 #请求连接的超时时间，默认时间为1秒
+  ReadTimeout: 5000 #请求处理的超时时间
